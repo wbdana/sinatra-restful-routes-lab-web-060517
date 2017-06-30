@@ -42,12 +42,13 @@ class ApplicationController < Sinatra::Base
     # erb :index
   end
 
-  #
+  # Edit a recipe
   get '/recipes/:id/edit' do
     @recipe = Recipe.find_by(id: params[:id])
     erb :edit
   end
 
+  # Post updates
   post '/recipes/:id' do
     @recipe = Recipe.find_by(id: params[:id])
     @recipe.update(params[:recipe])
